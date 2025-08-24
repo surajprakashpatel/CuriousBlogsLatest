@@ -1,8 +1,5 @@
 import Head from 'next/head';
 
-// CSS for this page must be moved to _app.js
-// import '../styles/TermsAndConditions.css';
-
 const TermsAndConditionsPage = () => {
   return (
     <>

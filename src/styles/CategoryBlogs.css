@@ -58,13 +58,13 @@ body {
   padding: 0 1.5rem; /* MODIFIED: Symmetrical padding */
 }
 
-.blog-list {
+.blog-list-category {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* MODIFIED: A slightly larger base size for cards */
   gap: 2rem;
 }
 
-.blog-card {
+.blog-card-card {
   display: flex;
   flex-direction: column;
   background: white;

@@ -13,7 +13,7 @@ const SignupPage = () => {
   const [formData, setFormData] = useState({ /* ... */ });
   const [isLoading, setIsLoading] = useState(false);
   
-  // 2. Replace useNavigate with useRouter
+
   const router = useRouter();
 
   const handleRoleSelection = (role) => {
@@ -54,7 +54,6 @@ const SignupPage = () => {
 
   return (
     <>
-      {/* 4. Replace <Helmet> with <Head> and add a 'noindex' tag */}
       <Head>
         <title>Sign Up | Curious Blogs</title>
         <meta name="description" content="Join Curious Blogs as an author or promoter. Sign up to start creating content or helping it reach a wider audience."/>
@@ -70,20 +69,145 @@ const SignupPage = () => {
                 <h2>Join as a...</h2>
                 <p>Select your role to get started</p>
               </div>
-              <div className="role-options">
-                {/* Role selection cards remain the same */}
+             <div className="role-options">
+              <div 
+                className="role-card"
+                onClick={() => handleRoleSelection('author')}
+              >
+                <div className="role-icon">
+                  <FaPenAlt />
+                </div>
+                <h3>Author</h3>
+                <p>Create and publish your own content</p>
+                <div className="select-role">
+                  Select <FaArrowRight />
+                </div>
               </div>
+
+              <div 
+                className="role-card"
+                onClick={() => handleRoleSelection('promoter')}
+              >
+                <div className="role-icon">
+                  <FaBullhorn />
+                </div>
+                <h3>Promoter</h3>
+                <p>Help spread great content and earn rewards</p>
+                <div className="select-role">
+                  Select <FaArrowRight />
+                </div>
+              </div>
+            </div>
               <div className="login-link">
-                Already have an account? <Link href="/login">Log in</Link> {/* 5. Use <Link> */}
+                Already have an account? <Link href="/login">Log in</Link> 
               </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="signup-form">
-              {/* The entire form structure remains the same */}
-              <div className="login-link">
-                Already have an account? <Link href="/login">Log in</Link> {/* 5. Use <Link> */}
+            <div className="signup-header">
+              <h2>Create Your Promoter Account</h2>
+              <p>Complete your details to get started</p>
+              <button 
+                type="button" 
+                className="back-btn"
+                onClick={() => setUserType('')}
+              >
+                ← Change role
+              </button>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="name">Full Name</label>
+              <div className="input-wrapper">
+                <FaUser className="input-icon" />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                  required
+                />
               </div>
-            </form>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <div className="input-wrapper">
+                <FaEnvelope className="input-icon" />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <div className="input-wrapper">
+                <FaLock className="input-icon" />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder="Create a password"
+                  required
+                  minLength="6"
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <div className="input-wrapper">
+                <FaLock className="input-icon" />
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Confirm your password"
+                  required
+                  minLength="6"
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="referralCode">Referral Code (Optional)</label>
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  id="referralCode"
+                  name="referralCode"
+                  value={formData.referralCode}
+                  onChange={handleChange}
+                  placeholder="Enter referral code if you have one"
+                />
+              </div>
+            </div>
+
+            <button 
+              type="submit" 
+              className="signup-btn"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Creating account...' : 'Sign Up as Promoter'}
+            </button>
+
+            <div className="login-link">
+              Already have an account? <Link href="/login">Log in</Link>
+            </div>
+          </form>
           )}
         </div>
       </div>

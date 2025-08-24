@@ -41,9 +41,9 @@ function CategoryBlogsPage({ blogs, formattedCategory, categorySlug }) {
       
       <div className="blogs-container">
         {blogs.length > 0 ? (
-          <div className="blog-list">
+          <div className="blog-list-category">
             {blogs.map(blog => (
-              <article key={blog.id} className="blog-card">
+              <article key={blog.id} className="blog-card-category">
                 <Link href={`/blog/${blog.id}`} className="blog-image-link">
                   <div className="blog-image-container">
                     <Image 

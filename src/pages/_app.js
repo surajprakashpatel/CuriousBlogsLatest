@@ -19,6 +19,8 @@ import '../styles/Disclaimer.css';
 import '../styles/TermsAndConditions.css';
 import '../styles/PrivacyPolicy.css';
 import '../styles/Signup.css';
+import '../styles/AuthorDashboard.css';
+import '../styles/Admin.css';
 
 function MyApp({ Component, pageProps }) {
 

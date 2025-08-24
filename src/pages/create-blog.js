@@ -2,17 +2,13 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router'; // Import for route protection
 
-// Firebase and context imports
+
 import { db, storage } from '../firebase';
 import { collection, addDoc, serverTimestamp, getDocs, updateDoc, doc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useAuth } from '../context/AuthContext'; // Import useAuth for protection
 
-// CSS for this page must be moved to _app.js
-// import '../styles/CreateBlog.css';
-
 function CreateBlogPage() {
-  // --- All of your existing component state and logic remain unchanged ---
   const [formData, setFormData] = useState({ /* ... */ });
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +18,6 @@ function CreateBlogPage() {
   const [subcategories, setSubcategories] = useState([]);
   const steps = ['Basic Info', 'Content', 'SEO & Settings', 'Review'];
 
-  // --- Route Protection Logic ---
   const { currentUser, loading } = useAuth();
   const router = useRouter();
 

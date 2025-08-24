@@ -54,13 +54,12 @@ export default function Footer() {
         <div className="footer-section">
           <h3 className="footer-heading">Quick Links</h3>
           <ul className="footer-links">
-            {/* 4. Replaced all <Link to="..."> with <Link href="..."> */}
             <li><Link href="/">Home</Link></li>
             <li><Link href="/about">About</Link></li>
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/disclaimer">Disclaimer</Link></li>
-            <li><Link href="/termsandconditions">Terms & Conditions</Link></li>
-            <li><Link href="/privacypolicy">Privacy Policy</Link></li>
+            <li><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
           </ul>
         </div>
 

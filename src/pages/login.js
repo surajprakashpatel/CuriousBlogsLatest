@@ -27,7 +27,7 @@ const LoginPage = () => {
     try {
       await login(formData.email, formData.password);
       toast.success('Login successful!');
-      router.push('/authorDashboard'); 
+      router.push('/author-dashboard'); 
     } catch (error) {
       toast.error(error.message || 'Login failed.');
     } finally {
