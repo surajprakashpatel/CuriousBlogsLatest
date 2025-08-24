@@ -7,9 +7,6 @@ import { useRouter } from 'next/router';
 import { FaUser, FaEnvelope, FaLock, FaArrowRight, FaBullhorn, FaPenAlt } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 
-// Import the minimal layout for this page
-import MinimalLayout from '../layouts/MinimalLayout';
-
 
 const SignupPage = () => {
   const [userType, setUserType] = useState('');
@@ -94,9 +91,5 @@ const SignupPage = () => {
   );
 };
 
-// 6. Assign the minimal layout to this page
-SignupPage.getLayout = function getLayout(page) {
-  return <MinimalLayout>{page}</MinimalLayout>;
-};
 
 export default SignupPage;

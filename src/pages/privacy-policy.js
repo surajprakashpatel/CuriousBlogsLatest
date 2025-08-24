@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 // CSS for this page must be moved to _app.js
-// import '../styles/PrivacyPolicy.css';
+
 
 const PrivacyPolicyPage = () => {
   return (
