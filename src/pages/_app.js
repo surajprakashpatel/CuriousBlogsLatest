@@ -13,7 +13,12 @@ import '../styles/Contact.css';
 import '../styles/BlogView.css';
 import '../styles/Login.css';
 import '../styles/Categories.css';
-import '../styles/CategoryBlogs.css'
+import '../styles/CategoryBlogs.css';
+import '../styles/CreateBlog.css';
+import '../styles/Disclaimer';
+import '../styles/TermsAndConditions';
+import '../styles/PrivacyPolicy.css';
+import '../styles/Signup.css';
 
 function MyApp({ Component, pageProps }) {
 
