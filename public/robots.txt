@@ -1,0 +1,24 @@
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /login/
+
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /authorOnboarding/
+
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /authorDashboard/
+
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /create/
+
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /signup/
+
+User-agent: *
+Disallow:
+
+Sitemap: https://curiousitylab.in/sitemap.xml

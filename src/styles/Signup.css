@@ -1,0 +1,197 @@
+
+        .signup-page {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f8f9fa;
+          padding: 20px;
+        }
+
+        .signup-container {
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          padding: 40px;
+          width: 100%;
+          max-width: 800px;
+        }
+
+        .signup-header {
+          text-align: center;
+          margin-bottom: 30px;
+          position: relative;
+        }
+
+        .signup-header h2 {
+          font-size: 28px;
+          color: #1e293b;
+          margin-bottom: 8px;
+          font-weight: 600;
+        }
+
+        .signup-header p {
+          color: #64748b;
+          font-size: 16px;
+        }
+
+        .back-btn {
+          position: absolute;
+          left: 0;
+          top: 0;
+          background: none;
+          border: none;
+          color: #4a6cf7;
+          font-size: 14px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .role-options {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          margin-bottom: 30px;
+        }
+
+        .role-card {
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          padding: 25px;
+          text-align: center;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .role-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          border-color: #4a6cf7;
+        }
+
+        .role-icon {
+          font-size: 40px;
+          color: #4a6cf7;
+          margin-bottom: 15px;
+        }
+
+        .role-card h3 {
+          font-size: 20px;
+          margin-bottom: 10px;
+          color: #1e293b;
+        }
+
+        .role-card p {
+          color: #64748b;
+          font-size: 14px;
+          margin-bottom: 15px;
+          min-height: 40px;
+        }
+
+        .select-role {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #4a6cf7;
+          font-weight: 500;
+          gap: 5px;
+        }
+
+        .form-group {
+          margin-bottom: 20px;
+        }
+
+        .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 500;
+          color: #334155;
+          font-size: 14px;
+        }
+
+        .input-wrapper {
+          position: relative;
+        }
+
+        .input-icon {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #94a3b8;
+          font-size: 16px;
+        }
+
+        .form-group input {
+          width: 100%;
+          padding: 12px 15px 12px 40px;
+          border: 1px solid #cbd5e1;
+          border-radius: 8px;
+          font-size: 15px;
+          transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+          outline: none;
+          border-color: #4a6cf7;
+        }
+
+        #referralCode {
+          padding-left: 15px;
+        }
+
+        .signup-btn {
+          width: 100%;
+          padding: 14px;
+          background: #4a6cf7;
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-weight: 500;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.2s;
+          margin-top: 10px;
+        }
+
+        .signup-btn:hover {
+          background: #3a5af0;
+        }
+
+        .signup-btn:disabled {
+          background: #cbd5e0;
+          cursor: not-allowed;
+        }
+
+        .login-link {
+          text-align: center;
+          color: #64748b;
+          font-size: 14px;
+          margin-top: 20px;
+        }
+
+        .login-link a {
+          color: #4a6cf7;
+          text-decoration: none;
+          font-weight: 500;
+        }
+
+        .login-link a:hover {
+          text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+          .signup-container {
+            padding: 30px 20px;
+          }
+
+          .back-btn{
+            display: none;
+          }
+          .role-options {
+            grid-template-columns: 1fr;
+          }
+        }
+     

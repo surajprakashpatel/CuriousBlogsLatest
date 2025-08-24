@@ -1,0 +1,94 @@
+.disclaimer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.disclaimer-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.disclaimer-header h1 {
+  font-family: 'Newsreader', serif;  
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.effective-date {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+.effective-date a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.effective-date a:hover {
+  text-decoration: underline;
+}
+
+.disclaimer-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.intro {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.disclaimer-section {
+  margin-bottom: 2.5rem;
+}
+
+.disclaimer-section h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.disclaimer-section p {
+  margin-bottom: 1rem;
+}
+
+.disclaimer-section ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.disclaimer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.disclaimer-section a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.disclaimer-section a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .disclaimer {
+    padding: 1rem;
+  }
+  
+  .disclaimer-content {
+    padding: 1rem;
+  }
+  
+  .disclaimer-header h1 {
+    font-size: 2rem;
+  }
+}

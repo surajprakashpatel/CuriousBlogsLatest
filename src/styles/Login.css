@@ -1,0 +1,198 @@
+.login-page {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f8f9fa;
+          padding: 20px;
+        }
+
+        .login-container {
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          padding: 40px;
+          width: 100%;
+          max-width: 450px;
+        }
+
+        .login-header {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+          font-size: 28px;
+          color: #1e293b;
+          margin-bottom: 8px;
+          font-weight: 600;
+        }
+
+        .login-header p {
+          color: #64748b;
+          font-size: 16px;
+        }
+
+        .form-group {
+          margin-bottom: 20px;
+        }
+
+        .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 500;
+          color: #334155;
+          font-size: 14px;
+        }
+
+        .input-wrapper {
+          position: relative;
+        }
+
+        .input-icon {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #94a3b8;
+          font-size: 16px;
+        }
+
+        .form-group input {
+          width: 100%;
+          padding: 12px 15px 12px 40px;
+          border: 1px solid #cbd5e1;
+          border-radius: 8px;
+          font-size: 15px;
+          transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+          outline: none;
+          border-color: #4a6cf7;
+        }
+
+        .forgot-password {
+          text-align: right;
+          margin-top: 8px;
+        }
+
+        .forgot-password a {
+          color: #4a6cf7;
+          font-size: 13px;
+          text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+          text-decoration: underline;
+        }
+
+        .login-btn {
+          width: 100%;
+          padding: 14px;
+          background: #4a6cf7;
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-weight: 500;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background 0.2s;
+          margin-top: 10px;
+        }
+
+        .login-btn:hover {
+          background: #3a5af0;
+        }
+
+        .login-btn:disabled {
+          background: #cbd5e0;
+          cursor: not-allowed;
+        }
+
+        .divider {
+          display: flex;
+          align-items: center;
+          margin: 25px 0;
+          color: #64748b;
+          font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+          content: "";
+          flex: 1;
+          border-bottom: 1px solid #e2e8f0;
+        }
+
+        .divider::before {
+          margin-right: 10px;
+        }
+
+        .divider::after {
+          margin-left: 10px;
+        }
+
+        .social-login {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 25px;
+        }
+
+        .social-btn {
+          flex: 1;
+          padding: 12px;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          background: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .social-btn:hover {
+          background: #f8fafc;
+        }
+
+        .social-btn.google {
+          color: #db4437;
+        }
+
+        .social-btn.github {
+          color: #333;
+        }
+
+        .social-icon {
+          font-size: 18px;
+        }
+
+        .signup-link {
+          text-align: center;
+          color: #64748b;
+          font-size: 14px;
+        }
+
+        .signup-link a {
+          color: #4a6cf7;
+          text-decoration: none;
+          font-weight: 500;
+        }
+
+        .signup-link a:hover {
+          text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+          .login-container {
+            padding: 30px 20px;
+          }
+
+          .social-login {
+            flex-direction: column;
+          }
+        }

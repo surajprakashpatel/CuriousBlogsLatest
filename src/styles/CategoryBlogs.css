@@ -1,0 +1,225 @@
+/* --- Global Reset & Best Practices --- */
+/* FIX: Universal box-sizing to prevent padding from causing overflow */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Base body styles for better typography */
+body {
+  font-family: 'Inter', sans-serif; /* A modern, readable sans-serif is a great default */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.category-blogs-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Slightly softer background */
+  overflow-x: hidden; /* SAFETY: Prevents any minor element from causing a horizontal scrollbar */
+}
+
+.category-header {
+  text-align: center;
+  padding: 3rem 1.5rem; /* MODIFIED: Reduced vertical padding */
+  background: #ffffff; /* A clean, flat white often looks more modern than gradients */
+  border-bottom: 1px solid #e9ecef; /* Subtle separator */
+  margin-bottom: 2rem;
+}
+
+.category-header h1 {
+  font-family: 'Lora', serif; /* A more readable serif for headings */
+  font-size: 2.5rem; /* MODIFIED: Slightly reduced for better balance */
+  margin-bottom: 0.75rem;
+  color: #212529;
+  font-weight: 600;
+}
+
+.category-subtitle {
+  font-size: 1.1rem; /* MODIFIED */
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto 1.25rem;
+}
+
+.blog-count {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: #e9ecef;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.blogs-container {
+  width: 100%; /* Ensure it takes full width */
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem; /* MODIFIED: Symmetrical padding */
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* MODIFIED: A slightly larger base size for cards */
+  gap: 2rem;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e9ecef; /* Use border instead of shadow for a cleaner look */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image-link {
+  position: relative;
+  display: block;
+}
+
+.blog-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.05);
+}
+
+.category-read-time {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(20, 20, 20, 0.7);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  backdrop-filter: blur(2px); /* NEW: Adds a nice frosted glass effect */
+}
+
+.blog-content {
+  padding: 1.25rem; /* MODIFIED: Slightly reduced padding */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem; /* MODIFIED */
+}
+
+.blog-subcategory {
+  background-color: #e7f5ff;
+  color: #1c7ed6;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.blog-date {
+  color: #868e96;
+}
+
+.blog-title {
+  font-size: 1.25rem; /* MODIFIED */
+  font-weight: 600; /* NEW: Added weight for better hierarchy */
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+  color: #212529;
+}
+
+.blog-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.blog-title a:hover {
+  color: #1c7ed6;
+}
+
+.blog-description {
+  color: #495057;
+  margin: 0 0 1.5rem;
+  line-height: 1.6; /* MODIFIED: Improved readability */
+  font-size: 0.95rem; /* MODIFIED */
+  flex-grow: 1;
+}
+
+/* Footer, Error, and Loading styles remain mostly the same */
+/* ... (pasting your other styles here for completeness) ... */
+.blog-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; }
+.blog-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.blog-tag { color: #4a5568; text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.blog-tag:hover { color: #3182ce; }
+.blog-stats { font-size: 0.85rem; color: #718096; }
+.no-blogs, .error-container { text-align: center; padding: 4rem 2rem; background: white; border-radius: 12px; max-width: 600px; margin: 2rem auto; }
+.loading-container { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh; padding: 2rem; }
+.spinner { border: 4px solid rgba(0, 0, 0, 0.1); border-radius: 50%; border-top: 4px solid #1c7ed6; width: 40px; height: 40px; animation: spin 1s linear infinite; margin-bottom: 1.5rem; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* --- Responsive Styles --- */
+
+@media (max-width: 768px) {
+  .category-header {
+    padding: 2.5rem 1rem; /* Further reduced padding on mobile */
+  }
+  .category-header h1 {
+    font-size: 2rem;
+  }
+  .category-subtitle {
+    font-size: 1rem;
+  }
+  .blogs-container {
+    padding: 0 1rem; /* Reduced container padding on mobile */
+  }
+  .blog-list {
+    /* Uses auto-fill, so no grid change is needed here */
+    gap: 1.5rem; /* Reduced gap on mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  /* This ensures that on the smallest screens, we switch to a single column */
+  .blog-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .blog-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .blog-content {
+    padding: 1rem; /* Tighten up card padding on very small screens */
+  }
+}
