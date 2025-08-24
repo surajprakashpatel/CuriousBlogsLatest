@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    // Add the domains for your Firebase Storage images here.
+    minimumCacheTTL: 31536000,
     domains: [
       'storage.googleapis.com', 
       'firebasestorage.googleapis.com'
