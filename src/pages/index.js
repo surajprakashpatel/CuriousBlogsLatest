@@ -2,7 +2,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-// Your Firebase imports are still needed for data fetching on the server
 import { collection, query, orderBy, limit, getDocs, where } from 'firebase/firestore';
 import { db } from '../firebase';
 import { slugify } from '@/utils/slugify';
@@ -34,7 +33,6 @@ export default function Home({ featured, popular, latest, displayedCategories })
               <h1>{featured.title}</h1>
               <p>{featured.description}</p>
               <div className="author-info-home">
-                <span>By {featured.author || 'Admin'}</span>
                 <span>{formatDate(featured.createdAt)}</span>
               </div>
            
@@ -47,14 +45,12 @@ export default function Home({ featured, popular, latest, displayedCategories })
                 width={800}  // 4
                 height={600} // 3
                 priority={true}
-                // The image will scale down to fit its container, but the space reserved will always be 4:3
               />
             </div>
           </section>
         )}
 
         <div className="home-content-wrapper">
-          {/* --- Main Feed for Latest Articles --- */}
           <section className="main-feed">
             <h2 className="section-title">Latest Articles</h2>
             <div className="articles-grid">
@@ -66,9 +62,9 @@ export default function Home({ featured, popular, latest, displayedCategories })
           <aside className="sidebar">
             <div className="sidebar-widget">
               <h3 className="widget-title">Popular Posts</h3>
-              <ul className="popular-posts-list">
+              <div className="popular-posts-list">
                 {popular.map(post => (
-                  <li key={post.id}>
+                  <div key={post.id}>
                     <Link href={`/blog/${post.id}`} className="popular-post-link">
                      <Image 
                         src={post.thumbnailUrl} 
@@ -79,20 +75,21 @@ export default function Home({ featured, popular, latest, displayedCategories })
                       />
                       <h4 className="popular-post-title">{post.title}</h4>
                     </Link>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div className="sidebar-widget">
-              <h3 className="widget-title">Top Categories</h3>
-              <ul className="categories-list">
+              <h3 className="widget-title">Trending Categories</h3>
+              <div className="categories-list">
                 {displayedCategories.map(cat => (
-                  <li key={cat.slug}>
-                    <Link href={`/category/${cat.slug}`}>{cat.name}</Link>
-                  </li>
+                  <Link href={`/category/${cat.slug}`} key={cat.slug} className="category-item">
+                    <span className="category-name">{cat.name}</span>
+                    <span className="category-count">{cat.count}</span>
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           </aside>
         </div>
@@ -102,7 +99,7 @@ export default function Home({ featured, popular, latest, displayedCategories })
 }
 
 // --- The Reusable Article Card Component ---
-function ArticleCard({ id, thumbnailUrl, category, title, author, createdAt }) {
+function ArticleCard({ id, thumbnailUrl, category, title, createdAt }) {
   return (
     <article className="article-card">
       <Link href={`/blog/${id}`} className="card-image-link">
@@ -119,8 +116,6 @@ function ArticleCard({ id, thumbnailUrl, category, title, author, createdAt }) {
           <Link href={`/blog/${id}`}>{title}</Link>
         </h3>
         <div className="card-meta">
-          <span>By {author || 'Admin'}</span>
-          <span>•</span>
           <span>{formatDate(createdAt)}</span>
         </div>
       </div>
@@ -130,7 +125,6 @@ function ArticleCard({ id, thumbnailUrl, category, title, author, createdAt }) {
 
 
 export async function getStaticProps() {
-
   const processDoc = (doc) => {
     const data = doc.data();
     const serializedData = {};
@@ -157,22 +151,32 @@ export async function getStaticProps() {
     const articlesRef = collection(db, 'blogs');
     const publishedQuery = where('status', '==', 'published');
 
-    // Fetch all data
+  
     const featuredSnap = await getDocs(query(articlesRef, publishedQuery, orderBy('createdAt', 'desc'), limit(1)));
     const latestSnap = await getDocs(query(articlesRef, publishedQuery, orderBy('createdAt', 'desc'), limit(6)));
     const popularSnap = await getDocs(query(articlesRef, publishedQuery, orderBy('viewsCount', 'desc'), limit(4)));
+    
+    const allBlogsSnapshot = await getDocs(query(articlesRef, publishedQuery));
+    const allBlogs = allBlogsSnapshot.docs.map(doc => ({ category: doc.data().category }));
 
-    // Use our helper function to process every document
+    // Process the data for the page sections
     const featured = !featuredSnap.empty ? processDoc(featuredSnap.docs[0]) : null;
     const latestPosts = latestSnap.docs.map(processDoc);
     const popularPosts = popularSnap.docs.map(processDoc);
-    
-    // Derive categories just like before
-    const categorySet = new Set(latestPosts.map(post => post.category));
 
+    
+    const categoryCounts = allBlogs.reduce((acc, blog) => {
+      if (blog.category) {
+        acc[blog.category] = (acc[blog.category] || 0) + 1;
+      }
+      return acc;
+    }, {});
+    
+    const categorySet = new Set(latestPosts.map(post => post.category));
     const displayedCategories = [...categorySet].map(categoryName => ({
       name: categoryName,
-      slug: slugify(categoryName) // Use the helper to create the correct slug
+      slug: slugify(categoryName),
+      count: categoryCounts[categoryName] || 0
     }));
 
     return {
@@ -180,20 +184,12 @@ export async function getStaticProps() {
         featured,
         popular: popularPosts,
         latest: latestPosts,
-        displayedCategories,
+        displayedCategories, 
       },
       revalidate: 600, 
     };
   } catch (error) {
     console.error("Error in getStaticProps for homepage:", error);
-    // Return empty props in case of an error to prevent the build from failing
-    return {
-      props: {
-        featured: null,
-        popular: [],
-        latest: [],
-        displayedCategories: [],
-      },
-    };
+    return { /* ... error props ... */ };
   }
 }

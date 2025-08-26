@@ -69,12 +69,12 @@ const AboutPage = () => {
           <section className="about-section">
             <h2>Want to Contribute?</h2>
             <p>
-              We're building a network of passionate content creators who earn by sharing their knowledge. If you have a perspective worth sharing and want to grow with us, reach out.
+              We're building a network of passionate content creators who earn by sharing their knowledge. If you have a perspective worth sharing and want to grow with us, reach out to us via our mail.
             </p>
          
-            <Link href="/write-for-us" className="cta-button">
-              👉 Write for Us
-            </Link>
+            {/* <Link href="/write-for-us" className="cta-button">
+              Write for Us
+            </Link> */}
           </section>
 
           <section className="about-section">
@@ -83,10 +83,9 @@ const AboutPage = () => {
               We value conversations. Got feedback? A question? A story idea? Want to partner or just say hi? Let's talk.
             </p>
             <div className="contact-info">
-              <p>📧 Email: <a href="mailto:contact@curiousitylab.in">contact@curiousitylab.in</a></p>
-              <p>🐦 Twitter: <a href="https://twitter.com/CuriousBlogs" target="_blank" rel="noopener noreferrer">@CuriousBlogs</a></p>
-              <p>📸 Instagram: <a href="https://instagram.com/CuriousBlogs" target="_blank" rel="noopener noreferrer">@CuriousBlogs</a></p>
-              <p>💼 LinkedIn: <a href="https://linkedin.com/company/CuriousBlogs" target="_blank" rel="noopener noreferrer">Curious Blogs</a></p>
+              <p> Email: <a href="mailto:contact@curiousitylab.in">contact@curiousitylab.in</a></p>
+              <p> Instagram: <a href="https://www.instagram.com/curiousitylabblogs/" target="_blank" rel="noopener noreferrer">@CuriousBlogs</a></p>
+              <p> Facebook: <a href="https://www.facebook.com/people/Curiousity-Lab/61579725156441/" target="_blank" rel="noopener noreferrer">Curious Blogs</a></p>
             </div>
           </section>
 

@@ -18,7 +18,5 @@ User-agent: Googlebot
 User-agent: AdsBot-Google
 Disallow: /signup/
 
-User-agent: *
-Disallow:
 
 Sitemap: https://curiousitylab.in/sitemap.xml

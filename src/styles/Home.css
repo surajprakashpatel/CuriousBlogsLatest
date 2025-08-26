@@ -252,3 +252,69 @@
   margin: 0;
   color: var(--dark-color);
 }
+
+/* === Add these new styles at the end of your file === */
+
+/* --- IMPROVED CATEGORIES WIDGET --- */
+.categories-list {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  gap: 0.75rem; /* Space between badges */
+  padding: 0;
+  list-style-type: none; /* Remove default list bullets */
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--light-gray);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--border-color);
+  width: 100%; /* Make each item take full width by default */
+}
+
+.category-item:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.category-item:hover .category-name {
+  color: white; /* Change name color on hover */
+}
+
+.category-item:hover .category-count {
+  background-color: white; /* Invert count bubble on hover */
+  color: var(--primary-color);
+}
+
+.category-name {
+  font-weight: 500;
+  color: var(--text-color);
+  transition: color 0.2s ease-in-out;
+}
+
+.category-count {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 24px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Make it a grid on wider screens */
+@media (min-width: 1024px) {
+  .category-item {
+    width: auto; /* Allow items to sit side-by-side */
+    flex-grow: 1; /* Allow items to grow and fill space */
+  }
+}

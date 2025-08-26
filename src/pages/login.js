@@ -40,7 +40,7 @@ const LoginPage = () => {
       if (provider === 'Google') {
         await signInWithGoogle();
         toast.success('Google login successful!');
-        router.push('/authorDashboard');
+        router.push('/author-dashboard');
       }
     } catch (error) {
       toast.error(error.message || 'Social login failed.');

@@ -55,7 +55,7 @@ const DisclaimerPage = () => {
             </ul>
             <p>
               {/* 5. Upgraded internal link to use <Link> */}
-              If you'd like to write for us, visit our <Link href="/write-for-us">Write for Us</Link> page.
+              If you'd like to write for us, mail us at contact@curiousitylab.in.
             </p>
           </section>
 

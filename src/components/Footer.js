@@ -70,7 +70,7 @@ export default function Footer() {
             <ul className="footer-links">
               {categories.map(cat => (
                 <li key={cat.id}>
-                  <Link href={`/category/${cat.slug || cat.id}`}>{cat.name}</Link>
+                  <Link href={`/category/${cat.name || cat.id}`}>{cat.id}</Link>
                 </li>
               ))}
             </ul>
@@ -84,16 +84,6 @@ export default function Footer() {
             <div className="footer-posts">
               {popularPosts.map(post => (
                 <div key={post.id} className="footer-post">
-                  {post.thumbnailUrl && (
-                    // 5. Replaced <img> with the optimized <Image> component
-                    <Image 
-                      src={post.thumbnailUrl} 
-                      alt={post.title} 
-                      width={50} // Small thumbnail size
-                      height={50}
-                      className="footer-post-img" 
-                    />
-                  )}
                   <div>
                     <Link href={`/blog/${post.id}`} className="footer-post-title">{post.title}</Link>
                     <span className="footer-post-date">{post.date}</span>

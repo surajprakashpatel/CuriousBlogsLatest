@@ -1,6 +1,8 @@
 
 
 import { AuthProvider } from '../context/AuthContext';
+import { ModalProvider } from '../context/ModalContext'; 
+import SubscribeModal from '../components/SubscribeModal'; 
 
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -21,18 +23,23 @@ import '../styles/PrivacyPolicy.css';
 import '../styles/Signup.css';
 import '../styles/AuthorDashboard.css';
 import '../styles/Admin.css';
-
+import '../styles/SubscribeModal.css';
 function MyApp({ Component, pageProps }) {
 
   return (
 
     <AuthProvider>
       
-      <Navbar />
       <main>
+      <ModalProvider> 
+      <Navbar />
+
        <Component {...pageProps} />
+        <SubscribeModal /> 
+        <Footer />
+      </ModalProvider>
       </main>
-      <Footer />
+     
     </AuthProvider>
   );
 }
